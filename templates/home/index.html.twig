@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}To you{% endblock %}
+
+{% block body %}
+    {% for message in messages %}
+        <div>
+            <h2>{{ message.title }}</h2>
+            <p>{{ message.createdAt ? message.createdAt|date('d-m-Y') : '' }}</p>
+            <div>{{ message.text }}</div>
+            <div>
+                <td>
+                    <a href="{{ path('app_messages_show', {'id': message.id}) }}">show</a>
+                    <a href="{{ path('app_messages_edit', {'id': message.id}) }}">edit</a>
+                    <a href="{{ path('app_messages_delete', {'id': message.id}) }}">delete</a>
+                </td>
+            </div>
+        </div>
+    {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+    {% endfor %}
+{% endblock %}

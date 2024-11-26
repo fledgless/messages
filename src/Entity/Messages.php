@@ -5,9 +5,10 @@ namespace App\Entity;
 use App\Repository\MessagesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: MessagesRepository::class)]
-class Messages
+class Messages 
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -20,8 +21,9 @@ class Messages
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $text = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    #[Gedmo\Timestampable]
+    private $createdAt = null;
 
     public function getId(): ?int
     {
