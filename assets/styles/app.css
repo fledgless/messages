@@ -1,3 +1,122 @@
+@font-face {
+    font-family: MrDafoe;
+    src: url(/public/fonts/MrDafoe/MrDafoe-Regular.ttf);
+}
+
+@font-face {
+    font-family: Baskerville;
+    src: url(/public/fonts/Baskerville/Baskervville-Regular.ttf);
+}
+
 body {
-    background-color: lightgray;
+    background-color: #1c1a24;
+}
+
+h1 {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    text-align: center;
+    text-shadow: 2px 1px 10px black;
+}
+
+h2 {
+    color: #1f2858;
+    text-shadow: 2px 1px 10px black;
+    margin-bottom: 3px;
+}
+
+p, .content, a {
+    color: #EAF7CF;
+    text-decoration: none;
+    font-family: Baskerville;
+}
+
+p {
+    margin: 3px;
+}
+
+.content {
+    text-align: justify;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 20vh;
+}
+
+.edit-button, .delete-button {
+    padding: 8px;
+    box-shadow: 1px 1px black;
+}
+
+.edit-button {
+    background-color: #1f2858;
+}
+
+.delete-button {
+    background-color: #6B0F1A;
+}
+
+.edit-button:hover, .delete-button:hover {
+    cursor: pointer;
+    box-shadow: -1px -1px black;
+}
+
+.salutations {
+    font-size: 24px;
+    margin-top: 7px;
+}
+
+.signed {
+    color: #6B0F1A;
+    text-shadow: 2px 1px 10px black;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: MrDafoe;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#messages div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#messages div label {
+    color: #1C3144;
+    font-family: Baskerville;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-shadow: 2px 1px 5px black;
+}
+
+#messages div #messages_title {
+    background-color: #EAF7CF;
+    width: 500px;
+    padding: 5px;
+    border: 3px solid #1C3144;
+    color: #1C3144;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#messages div #messages_text {
+    background-color: #EAF7CF;;
+    width: 700px;
+    max-width: 1000px;
+    height: 500px;
+    max-height: 700px;
+    border: 3px solid #1C3144;
+    color: #1C3144;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: justify;
 }

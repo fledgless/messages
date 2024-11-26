@@ -3,22 +3,22 @@
 {% block title %}To you{% endblock %}
 
 {% block body %}
+    <h1>To you</h1>
     {% for message in messages %}
-        <div>
+        <div class="message-content">
             <h2>{{ message.title }}</h2>
-            <p>{{ message.createdAt ? message.createdAt|date('d-m-Y') : '' }}</p>
-            <div>{{ message.text }}</div>
+            <p class="date">{{ message.createdAt ? message.createdAt|date('Y-m-d h:m') : '' }}</p>
+            <p class="salutations">Dear Muffin,</p>
+            <div class="content">{{ message.text }}</div>
+            <p class="signed">Loki</p>
             <div>
                 <td>
-                    <a href="{{ path('app_messages_show', {'id': message.id}) }}">show</a>
-                    <a href="{{ path('app_messages_edit', {'id': message.id}) }}">edit</a>
-                    <a href="{{ path('app_messages_delete', {'id': message.id}) }}">delete</a>
+                    <a class="edit-button" href="{{ path('app_messages_edit', {'id': message.id}) }}">Edit</a>
+                    <a class="delete-button" href="{{ path('app_messages_delete', {'id': message.id}) }}">Delete</a>
                 </td>
             </div>
         </div>
     {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
+            <p>Guess Loki got lazy. Or self-conscious.</p>
     {% endfor %}
 {% endblock %}
