@@ -3,9 +3,9 @@
 {% block title %}New Messages{% endblock %}
 
 {% block body %}
+    <a class="index-button" href="{{ path('app_home') }}">Return to list</a>
     <h1>Leave them another message</h1>
 
     {{ include('messages/_form.html.twig') }}
 
-    <a href="{{ path('app_home') }}">Back to hopeless pining</a>
 {% endblock %}

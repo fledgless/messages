@@ -8,8 +8,14 @@
     src: url(/public/fonts/Baskerville/Baskervville-Regular.ttf);
 }
 
+@font-face {
+    font-family: Montez;
+    src: url(/public/fonts/Montez/Montez-Regular.ttf);
+}
+
 body {
     background-color: #1c1a24;
+    font-family: Baskerville;
 }
 
 h1 {
@@ -17,26 +23,33 @@ h1 {
     margin-bottom: 5vh;
     text-align: center;
     text-shadow: 2px 1px 10px black;
+    font-family: Montez;
+    font-size: 64px;
+    color: #6B0F1A;
 }
 
 h2 {
     color: #1f2858;
     text-shadow: 2px 1px 10px black;
-    margin-bottom: 3px;
+    margin-bottom: 0px;
+    font-family: Montez;
+    font-size: 40px;
+    text-align: center;
+}
+
+.date {
+    text-align: center;
+    margin: 1px;
 }
 
 p, .content, a {
     color: #EAF7CF;
     text-decoration: none;
-    font-family: Baskerville;
-}
-
-p {
-    margin: 3px;
 }
 
 .content {
     text-align: justify;
+    text-indent: 5vh;
 }
 
 .message-content {
@@ -46,12 +59,43 @@ p {
     margin: 10px 20vh;
 }
 
-.edit-button, .delete-button {
+.delete-button, .save-button {
+    color: #EAF7CF;
+    font-family: Baskerville;
+}
+
+.save-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.new-button, .index-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.edit-button {
+    position: absolute;
+    right: 5px;
+    top: 45px
+}
+
+.edit-button, 
+.delete-button, 
+.new-button,
+.index-button,
+.save-button {
     padding: 8px;
     box-shadow: 1px 1px black;
 }
 
-.edit-button {
+.edit-button, 
+.new-button,
+.index-button,
+.save-button {
     background-color: #1f2858;
 }
 
@@ -59,7 +103,9 @@ p {
     background-color: #6B0F1A;
 }
 
-.edit-button:hover, .delete-button:hover {
+.edit-button:hover, 
+.new-button:hover,
+.edit-button:hover {
     cursor: pointer;
     box-shadow: -1px -1px black;
 }
@@ -90,7 +136,7 @@ p {
 }
 
 #messages div label {
-    color: #1C3144;
+    color: #EAF7CF;
     font-family: Baskerville;
     font-size: 24px;
     margin-top: 10px;
@@ -102,10 +148,13 @@ p {
     background-color: #EAF7CF;
     width: 500px;
     padding: 5px;
-    border: 3px solid #1C3144;
-    color: #1C3144;
+    border: 3px solid black;
+    color: #6B0F1A;
     border-radius: 10px;
     text-align: center;
+    font-family: Baskerville;
+    font-size: 16px;
+    font-weight: bolder;
 }
 
 #messages div #messages_text {
@@ -114,9 +163,12 @@ p {
     max-width: 1000px;
     height: 500px;
     max-height: 700px;
-    border: 3px solid #1C3144;
-    color: #1C3144;
+    border: 3px solid black;
+    color: black;
     border-radius: 5px;
     padding: 10px;
     text-align: justify;
+    font-family: Baskerville;
+    font-size: 12px;
+    font-weight: bolder;
 }
