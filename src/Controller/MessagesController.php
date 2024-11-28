@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/')]
+#[Route('/messages')]
 final class MessagesController extends AbstractController
 {
     #[Route('/new', name: 'app_messages_new', methods: ['GET', 'POST'])]
@@ -22,6 +22,7 @@ final class MessagesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $message->setUser($this->getUser());
             $entityManager->persist($message);
             $entityManager->flush();
 

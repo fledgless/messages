@@ -13,6 +13,7 @@ class MessagesType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('recipient')
             ->add('text')
         ;
     }
