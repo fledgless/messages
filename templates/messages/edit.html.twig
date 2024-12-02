@@ -3,7 +3,7 @@
 {% block title %}Edit Messages{% endblock %}
 
 {% block body %}
-    <a class="index-button" href="{{ path('app_home') }}">Return to list</a>
+    <a class="index-button" href="{{ path('app_messages') }}">Return to list</a>
     {{ include('messages/_delete_form.html.twig') }}
     <h1>Edit Messages</h1>
     {{ include('messages/_form.html.twig', {'button_label': 'Update'}) }}
