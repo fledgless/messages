@@ -14,6 +14,13 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/messages')]
 final class MessagesController extends AbstractController
 {
+    #[Route('/', name: 'app_messages', methods: ['GET'])]
+    public function index(MessagesRepository $messagesRepository): Response
+    {
+        return $this->render('messages/list.html.twig', [
+            'messages' => $messagesRepository->findAll(),
+        ]);
+    }
     #[Route('/new', name: 'app_messages_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -26,7 +33,7 @@ final class MessagesController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_messages', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('messages/new.html.twig', [
@@ -52,7 +59,7 @@ final class MessagesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_messages', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('messages/edit.html.twig', [
@@ -69,6 +76,6 @@ final class MessagesController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_messages', [], Response::HTTP_SEE_OTHER);
     }
 }

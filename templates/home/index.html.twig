@@ -1,21 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}To you{% endblock %}
+{% block title %}To you | Homepage{% endblock %}
 
 {% block body %}
-    <a class="new-button" href="{{ path('app_messages_new') }}">New</a>
-    <h1>To you</h1>
-    <div id="messages-list">
-        {% for message in messages %}
-            <a href="{{ path('app_messages_show', {'id': message.id}) }}">
-                <div class="message-show">
-                    <h2>{{ message.title }}</h2>
-                    <p class="date">{{ message.createdAt ? message.createdAt|date('Y-m-d g:ia', "Europe/Paris") : '' }} | {{ message.createdAt ? message.createdAt|date('Y-m-d g:ia', "America/Chicago") : "" }}</p>
-                    <div class="content">{{ message.text|striptags|slice(0, 300) ~ '...' }}</div>
-                </div>
-            </a>
-        {% else %}
-                <p>Guess Loki got lazy. Or self-conscious.</p>
-        {% endfor %}
-    </div>
+    <div>Check out your messages <a href="/messages">here</a></div>
 {% endblock %}
