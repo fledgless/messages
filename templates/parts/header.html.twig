@@ -1,0 +1,16 @@
+<header>
+    <a class="website-name" href="/">Messages to you</a>
+        <nav class="header-nav">
+            <ul class="main-nav">
+                {% if is_granted('ROLE_USER') %}
+                    <li class="main-nav-link"><a href="/messages">Messages</a></li>
+                    <li class="main-nav-link"><a href="#">Stickers</a></li>
+                    <li class="main-nav-link"><a href="#">Account</a></li>
+                    <li class="main-nav-link"><a href="/logout">Logout</a></li>
+                {% else %}
+                    <li class="main-nav-link"><a href="/login">Login</a></li>
+                    <li class="main-nav-link"><a href="/register">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+</header>

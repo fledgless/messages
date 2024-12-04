@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Messages{% endblock %}
+
+{% block body %}
+    <a class="index-button" href="{{ path('app_messages') }}">Return to list</a>
+    <h1>Leave them another message</h1>
+
+    {{ include('messages/_form.html.twig') }}
+
+{% endblock %}

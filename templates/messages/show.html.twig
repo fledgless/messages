@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+    <a class="index-button" href="{{ path('app_messages') }}">Return to list</a>
+    <a class="edit-button" href="{{ path('app_messages_edit', {'id': message.id}) }}">Edit</a>
+    {{ include('messages/_delete_form.html.twig') }}
+    <div class="message-content">
+        <h1>{{ message.title }}</h1>
+        <p class="date">{{ message.createdAt ? message.createdAt|date('F jS, Y - H:i a', "Europe/Paris") : '' }} | {{ message.createdAt ? message.createdAt|date('F jS, Y - H:i a', "America/Chicago") : '' }}</p>
+        <p class="salutations">Dear {{ message.recipient }},</p>
+        <div class="content">{{ message.text|nl2br }}</div>
+        <div class="signed">{{ message.user.name }}</div>
+    </div>
+{% endblock %}
