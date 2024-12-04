@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Messages;
+use App\Entity\User;
 use App\Form\MessagesType;
 use App\Repository\MessagesRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,8 +18,11 @@ final class MessagesController extends AbstractController
     #[Route('/', name: 'app_messages', methods: ['GET'])]
     public function index(MessagesRepository $messagesRepository): Response
     {
+        $user = $this->getUser();
         return $this->render('messages/list.html.twig', [
-            'messages' => $messagesRepository->findAll(),
+            'messages' => $messagesRepository->findBy(
+                ['user' => $user]
+            ),
         ]);
     }
     #[Route('/new', name: 'app_messages_new', methods: ['GET', 'POST'])]

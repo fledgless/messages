@@ -11,8 +11,9 @@
         {{ form_row(registrationForm.username) }}
         {{ form_row(registrationForm.email )}}
         {{ form_row(registrationForm.name, {
-            label: 'Writer name'
-        } )}}
+            label: 'Pen name',
+            help: "Choose whichever name you want to sign your messages with!"
+        }) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
