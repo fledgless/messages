@@ -58,6 +58,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style-type: none;
+}
+
 
 
 /* header and nav */
@@ -67,7 +71,7 @@ header {
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 89%, rgba(28,26,36,1) 95%);
     align-items: center;
     padding: 0px 10px;
 }
@@ -78,6 +82,9 @@ header nav {
 
 header .website-name {
     margin-left: 5vh;
+    font-family: Montez;
+    font-weight: bolder;
+    font-size: 24px;
 }
 
 header nav ul {
