@@ -32,6 +32,9 @@ class Messages
     #[ORM\Column(length: 255)]
     private ?string $recipient = null;
 
+    #[ORM\ManyToOne]
+    private ?Sticker $sticker = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +96,18 @@ class Messages
     public function setRecipient(string $recipient): static
     {
         $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    public function getSticker(): ?Sticker
+    {
+        return $this->sticker;
+    }
+
+    public function setSticker(?Sticker $sticker): static
+    {
+        $this->sticker = $sticker;
 
         return $this;
     }
